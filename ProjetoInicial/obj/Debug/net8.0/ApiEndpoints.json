@@ -1,0 +1,22 @@
+[
+  {
+    "ContainingType": "ProjetoInicial.Controllers.WeatherForecastController",
+    "Method": "GetSingleton",
+    "RelativePath": "WeatherForecast/Singleton",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoInicial.Controllers.WeatherForecastController",
+    "Method": "GetTransient",
+    "RelativePath": "WeatherForecast/Transient",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

@@ -1,23 +1,63 @@
 [
   {
-    "ContainingType": "ProjetoInicial.Controllers.WeatherForecastController",
-    "Method": "Get",
-    "RelativePath": "WeatherForecast",
+    "ContainingType": "ProjetoInicial.Controllers.AuthControllers",
+    "Method": "Login",
+    "RelativePath": "api/AuthControllers/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "username",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "password",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoInicial.Controllers.SecureController",
+    "Method": "AdminOnly",
+    "RelativePath": "api/Secure/admin",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[ProjetoInicial.WeatherForecast, ProjetoInicial, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ],
-    "EndpointName": "GetWeatherForecast"
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoInicial.Controllers.SecureController",
+    "Method": "AnyUser",
+    "RelativePath": "api/Secure/user",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoInicial.Controllers.BaseInjectionTest",
+    "Method": "GetSingleton",
+    "RelativePath": "BaseInjectionTest/Singleton",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjetoInicial.Controllers.BaseInjectionTest",
+    "Method": "GetTransient",
+    "RelativePath": "BaseInjectionTest/Transient",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
   }
 ]

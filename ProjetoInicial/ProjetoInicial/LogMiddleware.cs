@@ -11,13 +11,28 @@ namespace ProjetoInicial
 
         public LogMiddleware(RequestDelegate next)
         {
+            Console.WriteLine("Iniciando a aplicação");
             _next = next;
         }
 
-        public Task Invoke(HttpContext httpContext)
+        public async Task Invoke(HttpContext httpContext)
         {
 
-            return _next(httpContext);
+            var username = httpContext.Request.Query.FirstOrDefault().Value;
+               
+            //valida se o nome do usuario é Admin.
+            if (username.Count() > 0)
+            {
+                if (username.Equals("admin"))
+                {
+                    await _next(httpContext);
+                    return;
+                }
+            
+            }
+
+            httpContext.Response.StatusCode = StatusCodes.Status403Forbidden;
+            await httpContext.Response.WriteAsync("Usuário não autorizado.");
         }
     }
 

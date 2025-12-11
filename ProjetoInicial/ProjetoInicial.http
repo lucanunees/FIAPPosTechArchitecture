@@ -16,7 +16,7 @@ Content-Type: application/json
 
 ### Acessar endpoint apenas para Admin
 GET http://localhost:5193/api/secure/admin
-Authorization: Bearer {{token}}
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwianRpIjoiMmNiYjY1NTItNmE4MC00OTFhLTk0NjMtZGU2M2MxMTY3YmFmIiwiZXhwIjoxNzY1NDIzNjMzLCJpc3MiOiJTdWFBcGxpY2FjYW8ifQ.TEUgzFe47PbtU2a23lzwlsxGzjgqCDawfW6Uk1h3c_k
 
 ### Acessar endpoint acessível por qualquer usuário autenticado
 GET http://localhost:5193/api/secure/user

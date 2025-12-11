@@ -1,8 +1,18 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "ProjetoInicial",
-    "version": "1.0"
+    "title": "FIAP Class",
+    "description": "Projeto para seguir as aulas da Pós.",
+    "termsOfService": "https://example.com/terms",
+    "contact": {
+      "name": "Lucas Nunes",
+      "email": "lucasrafaelnunees@gmail.com"
+    },
+    "license": {
+      "name": "Example License",
+      "url": "https://example.com/license"
+    },
+    "version": "v1"
   },
   "paths": {
     "/api/AuthControllers/login": {

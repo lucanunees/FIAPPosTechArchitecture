@@ -1,9 +1,10 @@
-using ProjetoInicial;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using ProjetoInicial.Services.ServicesTransient;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using ProjetoInicial;
 using ProjetoInicial.Services.ServicesSingleton;
+using ProjetoInicial.Services.ServicesTransient;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +13,26 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Version = "v1",
+        Title = "FIAP Class",
+        Description = "Projeto para seguir as aulas da Pós.",
+        TermsOfService = new Uri("https://example.com/terms"),
+        Contact = new OpenApiContact
+        {
+            Name = "Lucas Nunes",
+            Email = "lucasrafaelnunees@gmail.com"
+        },
+        License = new OpenApiLicense
+        {
+            Name = "Example License",
+            Url = new Uri("https://example.com/license")
+        }
+    });
+});
 
 #region Injeção de dpendência/ DI
 builder.Services.AddSingleton<ILifecycleService, LifecycleServices>();

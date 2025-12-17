@@ -11,6 +11,11 @@ namespace Infrastructure.Repository
         // passamos a connection string via construtor para o DbContext (Injeção de dependencia)
         private readonly string _connectionString;
 
+        public ApplicationDbContext()
+        {
+            
+        }
+
         public ApplicationDbContext(string connectionString)
         {
             _connectionString = connectionString;

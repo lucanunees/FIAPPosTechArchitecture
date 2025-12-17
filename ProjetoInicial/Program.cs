@@ -5,8 +5,15 @@ using ProjetoInicial;
 using ProjetoInicial.Services.ServicesSingleton;
 using ProjetoInicial.Services.ServicesTransient;
 using System.Text;
+using Infrastructure.Repository;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// pega as configurações do arquivo appsettings.json de conexao com o banco de dados.
+var configuration = new ConfigurationBuilder()
+    .AddJsonFile("appsettings.json")
+    .Build();
 
 // Add services to the container.
 
@@ -34,6 +41,13 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
+// Configuração do Entity Framework e SQL Server
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+{
+    options.UseSqlServer(configuration.GetConnectionString("ConnectionString"));
+}, ServiceLifetime.Scoped);
+
+
 #region Injeção de dpendência/ DI
 builder.Services.AddSingleton<ILifecycleService, LifecycleServices>();
 builder.Services.AddSingleton<Lifecycle2Services>();
@@ -41,7 +55,6 @@ builder.Services.AddSingleton<Lifecycle2Services>();
 builder.Services.AddTransient<ILifecycleTransientService, LifecycleTransientService>();
 builder.Services.AddTransient<Lifecycle2TransientService>();
 #endregion
-
 
 #region [JWT] Configuração do JWT
 
